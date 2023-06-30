@@ -20,9 +20,9 @@ public class IndiaDiseaseStatFactory {
     }
 
     public IndianDiseaseStat GetInstance(String sourceType){
-        if(sourceType == "JohnHopkins")
+        if(sourceType.equalsIgnoreCase("JohnHopkins"))
             return johnHopkinsStrategy;
-        else if (sourceType == "DiseaseSh")
+        else if (sourceType.equalsIgnoreCase("DiseaseSh"))
             return diseaseShStrategy;
         else
             new IllegalArgumentException("invalid disease strategy/sourceType");
