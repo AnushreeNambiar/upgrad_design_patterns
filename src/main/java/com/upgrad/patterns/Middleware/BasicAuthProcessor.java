@@ -5,9 +5,14 @@ import com.upgrad.patterns.Authentication.BasicAuthProvider;
 
 public class BasicAuthProcessor extends AuthenticationProcessor {
 
-    public BasicAuthProcessor(AuthenticationProcessor processor)
+    public BasicAuthProcessor()
     {
-        super(processor);
+        super();
+    }
+
+       @Override
+    public void setNextProcessor(AuthenticationProcessor nextProcessor) {
+        this.nextProcessor = nextProcessor;
     }
 
     // is User name and password is provided, use it to authenticate

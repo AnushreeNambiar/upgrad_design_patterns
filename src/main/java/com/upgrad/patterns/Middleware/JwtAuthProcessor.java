@@ -5,9 +5,9 @@ import com.upgrad.patterns.Authentication.JwtAuthProvider;
 
 public class JwtAuthProcessor extends AuthenticationProcessor {
 
-    public JwtAuthProcessor(AuthenticationProcessor processor)
+    public JwtAuthProcessor()
     {
-        super(processor);
+        super();
     }
 
     // If JWT token is provided, use it to authenticate
