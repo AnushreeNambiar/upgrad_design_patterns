@@ -6,21 +6,23 @@ import com.upgrad.patterns.Middleware.JwtAuthProcessor;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class Authenticator 
 
-	public static AuthenticationProcessor GetAuthProcessor() {
-    // Create an object of type JwtAuthProcessor
-    AuthenticationProcessor jwtAuthProcessor = new JwtAuthProcessor();
+public class Authenticator {
 
-    // Create an object of type BasicAuthProcessor
-    AuthenticationProcessor basicAuthProcessor = new BasicAuthProcessor();
+    //create a public static method GetAuthProcessor of the return type AuthenticationProcessor
+    public static AuthenticationProcessor GetAuthProcessor(){
 
-    // Chain Authentication processors, first JWT processor is to be used first and then basic auth processor
-    jwtAuthProcessor.setNextProcessor(basicAuthProcessor);
+        // create an object of type JwtAuthProcessor
+        AuthenticationProcessor jwtAuthProcessor = new JwtAuthProcessor(null);
 
-    // Return the object
-    return jwtAuthProcessor;
-}
+        AuthenticationProcessor basicAuthProcessor = new BasicAuthProcessor(null);
+
+        // Chain Authentication processors, first JWT processor is to be used first and then basic auth processor
+        ((JwtAuthProcessor) jwtAuthProcessor).setNextProcessor(basicAuthProcessor);
+
+        // return the object
+        return  jwtAuthProcessor;
+    }
 
 //create a public static method GetAuthProcessor of the return type AuthenticationProcessor
 	// create an object of type JwtAuthProcessor

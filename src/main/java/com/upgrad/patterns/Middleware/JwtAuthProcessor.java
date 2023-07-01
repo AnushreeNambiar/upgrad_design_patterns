@@ -24,4 +24,8 @@ public class JwtAuthProcessor extends AuthenticationProcessor {
         }
         return false;
     }
+
+    public void setNextProcessor(AuthenticationProcessor nextProcessor) {
+        this.nextProcessor = nextProcessor;
+    }
 }
